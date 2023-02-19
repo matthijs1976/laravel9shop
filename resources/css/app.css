@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/*site nav------------------*/
+/*toggle display sun and moon---------------*/
+/* .display-none {
+  @apply hidden;
+} */
+/*site nav dropdown usr adm------------------*/
 #dropdown {
     z-index: 20;
   }
   
-  /*carousel------------------*/
+  /*carousel---------------------------------*/
   .carousel-open:checked + .carousel-item {
     position: static;
     opacity: 100;
@@ -52,7 +56,7 @@
   
   /*productnav------------------*/
   /* #Mega Menu Styles
-    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+    ––––––––––––––––––––––––––––––––––––––––––––––––––--------------------------- */
   
     .mega-menu {
       display: none;
@@ -66,7 +70,7 @@
   
   
     /* #toggle Class Styles
-    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+    ––––––––––––––––––––––––––––––––––––––––––––––––––------------------------------ */
   
     .toggleable > label:after {
       content: "\25BC";

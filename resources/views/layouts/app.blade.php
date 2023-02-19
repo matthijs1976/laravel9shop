@@ -17,25 +17,30 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+    
     @vite('resources/css/app.css')
     @livewireStyles
 </head>
 
-<body>
-    <div class="container mx-auto p-5">
-        <div class="md:flex md:flex-row md:justify-between text-center text-sm sm:text-base">
+<body class="w-screen bg-white dark:bg-slate-800">
+    <div class="container mx-auto p-5 bg-white dark:bg-slate-800">
+        <div class="md:flex md:flex-row md:justify-between text-center text-sm sm:text-base bg-white dark:bg-slate-800">
             <div class="flex flex-row justify-center">
                 <div class="bg-gradient-to-r from-green-400 to-blue-400 w-10 h-10 rounded-lg"></div>
-                <h1 class="text-3xl text-blue-600 ml-2">Tailwind</h1>
+                <h1 class="text-3xl text-blue-600 ml-2 dark:text-white">Tailwind</h1>
+                <div class="sun text-blue-600 hover:text-purple-600  sm:px-4  dark:text-white"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                  </svg>              
+                </div>
             </div>
-            <div class="mt-2">
-                <a href="/" class="text-blue-600 hover:text-purple-600 p-4 px-3 sm:px-4">Home</a>
-                <a href="/shop" class="text-blue-600 hover:text-purple-600 p-4 px-3 sm:px-4">Shop</a>
-                <a href="/checkout" class="text-blue-600 hover:text-purple-600 p-4 px-3 sm:px-4">Checkout</a>
+            <div class="mt-2">                
+                <a href="/" class="text-blue-600 hover:text-purple-600 p-4 px-3 sm:px-4 dark:text-white">Home</a>
+                <a href="/shop" class="text-blue-600 hover:text-purple-600 p-4 px-3 sm:px-4 dark:text-white">Shop</a>
+                <a href="/checkout" class="text-blue-600 hover:text-purple-600 p-4 px-3 sm:px-4 dark:text-white">Checkout</a>                
                 @auth
                     <div class="inline-flex flex-col items-center">
                         <button
-                            class="relative border border-green-400 rounded-full text-blue-400 h-10 pl-5 pr-5 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+                            class="relative border border-green-400 rounded-full text-blue-400 h-10 pl-5 pr-5 hover:border-gray-400 focus:outline-none appearance-none bg-white dark:bg-slate-800 dark:text-white"
                             id="menu-btn">{{ Auth::user()->name }}</button>
                         <div class="absolute bg-gradient-to-r from-green-400 to-blue-400 hidden flex-col rounded mt-10  p-2 text-sm text-gray-100 w-32"
                             id="dropdown">
@@ -71,22 +76,21 @@
         <div class="inline-flex flex-col items-center">
             <ul>
                 <!--login for unauthenticated or new user-->
-                <li><a href="{{ route('login') }}">Log In </a></li>
-                <li><a href="{{ route('register') }}">Sign Up</a></li>
+                <li><a href="{{ route('login') }}" class="text-blue-600 p-4 m-2 dark:text-white">Log In </a></li>
+                <li><a href="{{ route('register') }}" class="text-blue-600 dark:text-white">Sign Up</a></li>
             </ul>
         </div>
         @endif
-        <a href="/cart"
-            class="bg-gradient-to-r from-green-400 to-blue-400 text-gray-50 hover:bg-purple-700 p-3 px-3 sm:px-5 rounded-full">
+        <div><a href="/cart" class="bg-gradient-to-r from-green-400 to-blue-400 text-gray-50 hover:bg-purple-700 p-3 px-3 sm:px-5 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4  w-4 sm:h-6 sm:w-6 inline-block" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>Cart(0)
-        </a>
+        </a></div>
     </div>
     </div><!-- Main Navigation -->
-    <div class="carousel mt-4 relative shadow-2xl bg-white">
+    <div class="carousel mt-4 relative shadow-2xl bg-white dark:bg-slate-800">
         <div class="carousel-inner relative overflow-hidden">
             <!--Slide 1-->
             <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true"
@@ -147,14 +151,13 @@
     </div>
     <!--End carousel-->
     {{ $slot }}
-    <div
-        class="grid grid-flow-row grid-cols-1 pt-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-        <div class="shadow-lg">
+    <div class="grid grid-flow-row grid-cols-1 pt-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+        <div class="shadow-lg bg-white dark:bg-slate-600">
             <a href="#">
                 <img src="https://southpark-online.nl/assets/images/clips/what-the-hell-is-a-sodosopa.jpg" />
             </a>
             <div class="p-5">
-                <h3><a href="#">City Wok</a></h3>
+                <h3><a href="#" class="text-blue-600 dark:text-white">City Wok</a></h3>
                 <div class="flex flex-row my-3">
                     <div class="bg-black rounded-full h-5 w-5 shadow-md mr-2"></div>
                     <div class="bg-blue-800 rounded-full h-5 w-5 shadow-md mr-2"></div>
@@ -393,18 +396,8 @@
     <!-- Men's Collection Section -->
     </div>
 </body>
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        const menuBtn = document.querySelector('#menu-btn')
-        const dropdown = document.querySelector('#dropdown')
 
-        menuBtn.addEventListener('click', () => {
-            dropdown.classList.toggle('hidden')
-            dropdown.classList.toggle('flex')
-        })
-
-    })
-</script>
+<script src="{{ asset('assets/js/main.js')}}"></script>
 @livewireScripts
 
 </html>
