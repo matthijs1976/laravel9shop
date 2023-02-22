@@ -393,8 +393,53 @@
             </div>
         </div>
     </div>
-    <!-- Men's Collection Section -->
+    <!-- end shop cards -->
     </div>
+    <footer>
+        <div class="bg-gradient-to-r from-green-400 to-blue-400 p-10 text-gray-200 dark:bg-gradient-to-r dark:from-slate-800 dark:to-slate-400">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+                    <div class="mb-5">
+                        <h4 class="text-2xl pb-4">Laravel9shop</h4>
+                        Langestraat 304106<br>
+                        1234AA Nergenshuizen<br>
+                        Nederland<br>
+                        <strong>Tel:</strong>0612345678<br>
+                        <strong>Email:</strong>info@website.from<br>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="text-2xl pb-4">Links</h4>
+                        <ul>
+                            <li class="pb-3"><i class="">- </i><a href="/">Home</a></li>
+                            <li class="pb-3"><i class="">- </i><a href="#">Over Ons</a></li>
+                            <li class="pb-3"><i class="">- </i><a href="#">Contact</a></li>
+                            <li class="pb-3"><i class="">- </i><a href="#">Algemene Voorwaarden</a></li>
+                            <li class="pb-3"><i class="">- </i><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="text-2xl pb-4">Klantenservice</h4>
+                        <ul>
+                            <li class="pb-3"><i class="">- </i><a href="#">Bestellen</a></li>
+                            <li class="pb-3"><i class="">- </i><a href="#">Bezorgen</a></li>
+                            <li class="pb-3"><i class="">- </i><a href="#">Retour</a></li>
+                            <li class="pb-3"><i class="">- </i><a href="#">Garantie</a></li>
+                            <li class="pb-3"><i class="">- </i><a href="#">Mijn Account</a></li>
+                        </ul>
+                    </div>
+                    <div class="mb-5">
+                        <h4  class="text-2xl pb-4">Meld je aan voor onze nieuwsbrief</h4> 
+                        <p>Blijf op de hoogte van onze aanbiedingen en meer...</p> 
+                        <form>
+                            <input class="text-blue-800" type="text" name="" id="newsletter">
+                            <button class="bg-gradient-to-r from-green-400 to-blue-400 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center">Ik Meld Mij Aan</button>
+                        </form>                     
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </footer>
+
 </body>
 
 <script src="{{ asset('assets/js/main.js')}}"></script>
