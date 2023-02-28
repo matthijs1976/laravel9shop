@@ -1,13 +1,15 @@
 window.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.querySelector('#menu-btn')
-    const dropdown = document.querySelector('#dropdown')
+    const dropDown = document.querySelector('#dropdown')
+    
 
     menuBtn.addEventListener('click', () => {
-        dropdown.classList.toggle('hidden')
-        dropdown.classList.toggle('flex')
-    });
+        dropDown.classList.toggle('hidden')
+        dropDown.classList.toggle('flex')
+    })
 
 });
+
 
     //darktheme icons test button. will be done in breeze ltr
     const sunIcon = document.querySelector(".sun");      

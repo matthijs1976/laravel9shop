@@ -20,6 +20,7 @@
     
     @vite('resources/css/app.css')
     @livewireStyles
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class="w-screen bg-white dark:bg-slate-800">
@@ -39,11 +40,10 @@
                 <a href="/checkout" class="text-blue-600 hover:text-purple-600 p-4 px-3 sm:px-4 dark:text-white">Checkout</a>                
                 @auth
                     <div class="inline-flex flex-col items-center">
-                        <button
-                            class="relative border border-green-400 rounded-full text-blue-400 h-10 pl-5 pr-5 hover:border-gray-400 focus:outline-none appearance-none bg-white dark:bg-slate-800 dark:text-white"
-                            id="menu-btn">{{ Auth::user()->name }}</button>
-                        <div class="absolute bg-gradient-to-r from-green-400 to-blue-400 hidden flex-col rounded mt-10  p-2 text-sm text-gray-100 w-32"
-                            id="dropdown">
+                        <button id="menu-btn" class="menu-btn relative border border-green-400 rounded-full text-blue-400 h-10 pl-5 pr-5 hover:border-gray-400 focus:outline-none appearance-none bg-white dark:bg-slate-800 dark:text-white">
+                            {{ Auth::user()->name }}
+                        </button>
+                        <div id="dropdown" class="dropdown absolute bg-gradient-to-r from-green-400 to-blue-400 hidden flex-col rounded mt-10  p-2 text-sm text-gray-100 w-32">
                             @if (Auth::user()->utype == 'ADM')
                                 <ul>
                                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
@@ -81,13 +81,7 @@
             </ul>
         </div>
         @endif
-        <div><a href="/cart" class="bg-gradient-to-r from-green-400 to-blue-400 text-gray-50 hover:bg-purple-700 p-3 px-3 sm:px-5 rounded-full">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4  w-4 sm:h-6 sm:w-6 inline-block" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>Cart(0)
-        </a></div>
+        @livewire('cart-icon-component')
     </div>
     </div><!-- Main Navigation -->
     
