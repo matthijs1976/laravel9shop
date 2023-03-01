@@ -1,0 +1,44 @@
+/* #toggle Class Styles
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+  .toggleable > label:after {
+    
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+     
+  
+    
+   
+  }
+
+  .toggle-input {
+    display: none;
+  }
+  .toggle-input:not(checked) ~ .mega-menu {
+    display: none;
+  }
+
+  .toggle-input:checked ~ .mega-menu {
+    display: block;  
+     overflow-y: scroll;
+    
+    
+  
+  }
+
+  .toggle-input:checked + label {
+    color: white;
+    
+  }
+
+  .toggle-input:checked ~ label:after {
+   
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+    overflow-y: scroll;
+         
+  }

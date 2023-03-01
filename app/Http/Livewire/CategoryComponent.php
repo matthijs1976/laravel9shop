@@ -8,11 +8,12 @@ use App\Models\Category;
 use Livewire\WithPagination;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
-class ShopComponent extends Component
+class CategoryComponent extends Component
 {
     use WithPagination;
     public $pageSize = 12;
     public $orderBy= "Default";
+    public $slug;
 
     public function store($product_id, $product_name, $product_price)
     {
@@ -30,24 +31,32 @@ class ShopComponent extends Component
         $this->orderBy= $order;
     }
 
+    public function mount($slug)
+    {
+        $this->slug = $slug;
+    }
+
     public function render()
     {
+        $category = Category::where('slug',$this->slug)->first();
+        $category_id = $category->id;
+        $category_name = $category->name;
         if($this->orderBy== 'Laag->Hoog')
         {
-            $products = Product::orderBy('regular_price', 'ASC')->paginate($this->pageSize);
+            $products = Product::where('category_id',$category_id)->orderBy('regular_price', 'ASC')->paginate($this->pageSize);
         }
         else if($this->orderBy== 'Hoog->Laag')
         {
-            $products = Product::orderBy('regular_price', 'DESC')->paginate($this->pageSize); 
+            $products = Product::where('category_id',$category_id)->orderBy('regular_price', 'DESC')->paginate($this->pageSize); 
         }
         else if($this->orderBy== 'Nieuwste')
         {
-            $products = Product::orderBy('created_at', 'DESC')->paginate($this->pageSize); 
+            $products = Product::where('category_id',$category_id)->orderBy('created_at', 'DESC')->paginate($this->pageSize); 
         }
         else{
-            $products = Product::paginate($this->pageSize);
+            $products = Product::where('category_id',$category_id)->paginate($this->pageSize);
         }        
         $categories = Category::orderBy('name','ASC')->get();
-        return view('livewire.shop-component',['products'=>$products,'categories'=>$categories]);
+        return view('livewire.category-component',['products'=>$products,'categories'=>$categories,'$category_name'=>$category_name]);
     }
 }
