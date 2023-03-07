@@ -1,3 +1,4 @@
+
 <div>
     <main class="main">
         <div class="flex shadow-lg justify-start bg-white text-blue-600 dark:text-gray-400 dark:bg-slate-800">
@@ -11,7 +12,7 @@
                 @foreach($categories as $category)
               <ul class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3">
                
-                <h3 class="font-bold text-xl text-white text-bold mb-2"><a href="{{ route('product.category',['slug'=>$category->slug])}}">{{ $category->name }}</a></h3>
+                <h3 class="font-bold text-xl text-white text-bold mb-2"><a href="{{ route('product.category',['slug'=>$category->slug]) }}">{{ $category->name }}</a></h3>
                 <li>
                   <a href="#" class="block p-3 hover:bg-blue-400 text-gray-300 hover:text-white">Category One Sublink</a>
                 </li>
@@ -33,34 +34,32 @@
                        
               </div>
             </div>            
-        </ul>
-           
+        </ul>      
 		  
           <!-- ## Toggleable Link Template ##-->
-            <p class="border p-2 mb-1"><strong class="search-result">{{ $products->total() }}</strong> Producten Gevonden In <strong>{{ $category_name }}</strong></p>
-            
+        <p class="border p-2 mb-1"><strong class="search-result">{{ $products->total() }}</strong> Producten Gevonden</p>            
             <div class="relative flex-col border p-2 mb-1" x-data="{ open: false }">
-                <button @click="open = true">Producten Per Pagina: {{ $pageSize }}</button>
-         
+                <button @click="open = true">Producten Per Pagina: {{ $pageSize }}</button>         
                 <ul class="absolute bg-white z-10" x-show="open" @click.outside="open = false">
-                    <li class="px-4 border text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" wire:click.prevent="changePageSize(12)">12</a></li>
-                    <li class="px-4 border text-blue-600 dark:text-gray-400 dark:bg-slate-800"><a href="#" wire:click.prevent="changePageSize(16)">16</a></li>
-                    <li class="px-4 border text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" wire:click.prevent="changePageSize(24)">24</a></li>
-                    <li class="px-4 border rounded-b text-blue-600 dark:text-gray-400 dark:bg-slate-800"><a href="#" wire:click.prevent="changePageSize(32)">32</a></li>
+                    <li class="px-4 border text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" @click="open = false" wire:click.prevent="changePageSize(12)">12</a></li>
+                    <li class="px-4 border text-blue-600 dark:text-gray-400 dark:bg-slate-800"><a href="#" @click="open = false" wire:click.prevent="changePageSize(16)">16</a></li>
+                    <li class="px-4 border text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" @click="open = false" wire:click.prevent="changePageSize(24)">24</a></li>
+                    <li class="px-4 border rounded-b text-blue-600 dark:text-gray-400 dark:bg-slate-800"><a href="#" @click="open = false" wire:click.prevent="changePageSize(32)">32</a></li>
                 </ul>
             </div>
             <div class="relative border p-2 mb-1" x-data="{ open: false }">
                 <button @click="open = true">Sorteer op: {{ $orderBy }}</button>         
                 <ul class="absolute bg-white z-10" x-show="open" @click.outside="open = false">
-                    <li class="px-4  border rounded-b  text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" wire:click.prevent="changeOrderBy('Default')">Default</a></li>
-                    <li class="px-4  border text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" wire:click.prevent="changeOrderBy('Laag->Hoog')">Prijs: <span class="text-sm">Laag->Hoog</span></a></li>
-                    <li class="px-4  border  text-blue-600 dark:text-gray-400 dark:bg-slate-800"><a href="#" wire:click.prevent="changeOrderBy('Hoog->Laag')">Prijs: <span class="text-sm"> Hoog->Laag</span></a></li>
-                    <li class="px-4  border rounded-b  text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" wire:click.prevent="changeOrderBy('Nieuwste')">Nieuwste Producten</a></li>
+                    <li class="px-4  border rounded-b  text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" @click="open = false" wire:click.prevent="changeOrderBy('Default')">Default</a></li>
+                    <li class="px-4  border text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" @click="open = false" wire:click.prevent="changeOrderBy('Laag->Hoog')">Prijs: <span class="text-sm">Laag->Hoog</span></a></li>
+                    <li class="px-4  border  text-blue-600 dark:text-gray-400 dark:bg-slate-800"><a href="#" @click="open = false" wire:click.prevent="changeOrderBy('Hoog->Laag')">Prijs: <span class="text-sm"> Hoog->Laag</span></a></li>
+                    <li class="px-4  border rounded-b  text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" @click="open = false" wire:click.prevent="changeOrderBy('Nieuwste')">Nieuwste Producten</a></li>
                 </ul>
-            </div>             
+            </div>
             
         </div>         
-        @livewire('search-bar-component')         
+        @livewire('search-bar-component')  
+        
         <div class="grid grid-flow-row grid-cols-1 pt-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">           
             @foreach($products as $product)
             <div class="shadow-lg bg-white dark:bg-slate-600">
@@ -112,11 +111,9 @@
                     </div>
                 </div>
             </div>{{-- end product card --}}
-            @endforeach
-           
+            @endforeach           
         </div>
         <!-- end shop cards -->
         <div>{{ $products->links() }}</div>
     </main>
 </div>
-
