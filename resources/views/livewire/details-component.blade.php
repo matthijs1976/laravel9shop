@@ -67,7 +67,7 @@
                     <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs"
                         href="#">S</a>
                 </div></div>
-                <!-- begin wishlist button for product--> 
+                {{-- <!-- begin wishlist button for product. method [addToWishlist] to be inserted on component: [details-component]--> 
                 @php
                   $witems = Cart::instance('wishlist')->content()->pluck('id');
                 @endphp
@@ -88,7 +88,7 @@
                 
                 @endif
               </div> 
-              <!-- end wishlist button-->    
+              <!-- end wishlist button-->     --}}
         
           <div class="flex">
             <span class="title-font font-medium text-2xl text-blue-600 dark:text-white">&euro; {{ $product->regular_price }}</span>
