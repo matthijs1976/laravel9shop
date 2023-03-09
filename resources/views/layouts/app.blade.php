@@ -23,7 +23,7 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="w-screen bg-white dark:bg-slate-800">
+<body class="bg-white dark:bg-slate-800">
     <div class="container mx-auto p-5 bg-white dark:bg-slate-800">
         <div class="md:flex md:flex-row md:justify-between text-center text-sm sm:text-base bg-white dark:bg-slate-800">
             <div class="flex flex-row justify-center">
@@ -80,11 +80,12 @@
                 <li><a href="{{ route('register') }}" class="text-blue-600 dark:text-white">Sign Up</a></li>
             </ul>
         </div>
-        @endif
+        @endif       
         @livewire('cart-icon-component')
+        
     </div>
     </div><!-- Main Navigation -->
-    
+        
     {{ $slot }}
    
     </div>
@@ -137,5 +138,6 @@
 
 <script src="{{ asset('assets/js/main.js')}}"></script>
 @livewireScripts
+@stack('scripts')
 
 </html>

@@ -40,8 +40,8 @@
                     </div>
                   </div>
             @endif
-            @if(Cart::count() > 0) 
-            @foreach(Cart::content() as $item)
+            @if(Cart::instance('cart')->count() > 0) 
+            @foreach(Cart::instance('cart')->content() as $item)
            
           <ul class="space-y-4">
             <li class="flex items-center gap-4">

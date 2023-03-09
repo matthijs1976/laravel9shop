@@ -4,8 +4,8 @@
     <div class="container px-5 py-24 mx-auto">
       <div class="lg:w-4/5 mx-auto flex flex-wrap">
         <img class="lg:w-1/2 w-full object-cover object-center rounded border shadow-lg border-gray-200 bg-white dark:bg-slate-800" src="{{ asset('assets/imgs/shop/digital_')}}{{ $product->id}}.jpg" alt="{{ $product->name }}">
-        <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-          <h2 class="text-sm title-font text-blue-600 dark:text-white tracking-widest">BRAND NAME</h2>
+        <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">          
+          <h2 class="text-sm title-font text-blue-600 dark:text-white tracking-widest">BRAND NAME</h2>          
           <h1 class="text-blue-600 dark:text-white text-3xl title-font font-medium mb-1">{{ $product->name }}</h1>
           <div class="flex mb-4">
             <span class="flex items-center">
@@ -67,6 +67,28 @@
                     <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs"
                         href="#">S</a>
                 </div></div>
+                <!-- begin wishlist button for product--> 
+                @php
+                  $witems = Cart::instance('wishlist')->content()->pluck('id');
+                @endphp
+                <div class="flex p-3 mb-1 justify-center dark:text-gray-400 dark:bg-slate-800">
+                  @if($witems->contains($product->id))
+                  <a href="#" class="flex text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                          </svg>
+                          <p class="text-blue-600 dark:text-gray-400 dark:bg-slate-800">Toegevoegd Aan Verlanglijst</p>
+                      </a>
+                    
+                  @else
+                  <a href="#" wire:click.prevent="addToWishlist({{ $product->id }},'{{ $product->name }}',{{ $product->regular_price}})" class="flex text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                      </svg>
+                      <p class="text-blue-600 dark:text-gray-400 dark:bg-slate-800">Voeg Toe Aan Verlanglijst</p>
+                  </a>
+                
+                @endif
+              </div> 
+              <!-- end wishlist button-->    
         
           <div class="flex">
             <span class="title-font font-medium text-2xl text-blue-600 dark:text-white">&euro; {{ $product->regular_price }}</span>
@@ -79,11 +101,12 @@
             </svg>
             Add to cart
         </a>
-            <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+            {{--reserve wishlist icon still under consideration--}} 
+            {{--   <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-red-500 ml-4">
               <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                 <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
               </svg>
-            </button>
+            </button> --}}
           </div>
           <p class="mt-6 text-blue-600 dark:text-white">{{ $product->description }}</p>
         </div>
