@@ -33,7 +33,7 @@
     </ul>        
         <!-- ## Toggleable Link Template ##-->
     <p class="border rounded-full p-3 mb-1"><strong class="search-result">{{ $products->total() }}</strong> Producten Gevonden</p>            
-        <div class="relative flex-col border rounded-full p-3 mb-1" x-data="{ open: false }">
+        <div class="relative flex-col mx-auto border rounded-full p-3 mb-1" x-data="{ open: false }">
             <button @click="open = true">Producten Per Pagina: {{ $pageSize }}</button>         
             <ul class="absolute bg-white z-10" x-show="open" @click.outside="open = false">
                 <li class="px-4 border text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" @click="open = false" wire:click.prevent="changePageSize(12)">12</a></li>
@@ -51,9 +51,10 @@
                 <li class="px-4  border rounded-b  text-blue-600 dark:text-gray-400 dark:bg-slate-600"><a href="#" @click="open = false" wire:click.prevent="changeOrderBy('Nieuwste')">Nieuwste Producten</a></li>
             </ul>
         </div>
-        @livewire('wishlist-icon-component')    
-    <!-- between two numbers comes here soon--> 
-    </div>                
+        @livewire('wishlist-icon-component')
+    </div>    
+    <!-- between two numbers priceslider comes here soon--> 
+                     
     @livewire('search-bar-component') 
     <!-- start of product cards-->        
     <div class="grid grid-flow-row grid-cols-1 pt-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
@@ -91,17 +92,17 @@
                @endphp
                <div class="flex p-3 mb-1 justify-center dark:text-gray-400 dark:bg-slate-800">
                  @if($witems->contains($product->id))
-                 <a href="#" class="flex text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                 <a href="#" wire:click.prevent="removeFromWishlist({{ $product->id }})" class="flex text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                          </svg>
-                         <p class="text-blue-600 dark:text-gray-400 dark:bg-slate-800">Toegevoegd Aan Verlanglijst</p>
+                         <p class="text-blue-600 text-xs pt-1 dark:text-gray-400 dark:bg-slate-800">Verwijder Van Verlanglijst</p>
                      </a>
                    
                  @else
                  <a href="#" wire:click.prevent="addToWishlist({{ $product->id }},'{{ $product->name }}',{{ $product->regular_price}})" class="flex text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                      </svg>
-                     <p class="text-blue-600 dark:text-gray-400 dark:bg-slate-800">Voeg Toe Aan Verlanglijst</p>
+                     <p class="text-blue-600 text-xs pt-1 dark:text-gray-400 dark:bg-slate-800">Voeg Toe Aan Verlanglijst</p>
                  </a>
                
                @endif
