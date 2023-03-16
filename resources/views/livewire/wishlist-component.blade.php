@@ -1,7 +1,11 @@
 <main class="main">
-    
-    
-    <!-- start of product cards-->        
+    @if(Cart::instance('wishlist')->count() < 1)
+    <div class="">
+    <h1 class="flex justify-center text-blue-600 dark:text-white">Geen Producten In Verlanglijst</h1>
+    <a href="{{ route('shop') }}" class="flex justify-center text-3xl text-blue-600 hover:text-purple-600 p-4 px-3 sm:px-4 dark:text-white">Ga Verder Met Shoppen</a>
+    </div>
+    @else    
+    <!-- start of wishlist product cards-->        
     <div class="grid grid-flow-row grid-cols-1 pt-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                 
         @foreach(Cart::instance('wishlist')->content() as $item)
@@ -79,5 +83,5 @@
         @endforeach           
     </div>
     <!-- end shop cards -->
-    {{-- <div>{{ $item->model->links() }}</div> --}}
+    @endif
 </main>

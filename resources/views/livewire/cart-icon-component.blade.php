@@ -1,5 +1,5 @@
 <div>
-    <div class="mt-3">
+    <div class="mb-3">
         <a href="{{ route('shop.cart') }}" class="bg-gradient-to-r from-green-400 to-blue-400 text-gray-50 hover:bg-purple-700 p-3 px-3 sm:px-5 rounded-full">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4  w-4 sm:h-6 sm:w-6 inline-block" fill="none"
             viewBox="0 0 24 24" stroke="currentColor">

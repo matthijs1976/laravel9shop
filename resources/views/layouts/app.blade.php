@@ -48,7 +48,7 @@
                                 <ul>
                                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                                     <li><a href="#">Products</a></li>
-                                    <li><a href="#">Categories</a></li>
+                                    <li><a href="{{ route('admin.categories')}}">Categories</a></li>
                                     <li><a href="#">Coupons</a></li>
                                     <li><a href="#">Orders</a></li>
                                     <li><a href="#">Customers</a></li>
