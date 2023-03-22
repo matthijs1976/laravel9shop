@@ -20,7 +20,7 @@
   }
 -->
     <main class="main">
-        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
             <div class="mx-auto max-w-3xl">
                 <header class="text-center">
                     <h1 class="mb-12 text-xl font-bold text-blue-600 dark:text-white sm:text-3xl">Voeg Categorie Toe</h1>

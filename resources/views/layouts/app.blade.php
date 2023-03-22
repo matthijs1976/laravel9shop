@@ -21,6 +21,7 @@
     @vite('resources/css/app.css')
     @livewireStyles
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
 </head>
 
 <body class="bg-white dark:bg-slate-800">
