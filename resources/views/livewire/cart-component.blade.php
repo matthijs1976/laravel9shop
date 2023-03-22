@@ -46,7 +46,7 @@
           <ul class="space-y-4">
             <li class="flex items-center gap-4">
               <img
-              src="{{ asset('assets/imgs/shop/digital_')}}{{ $item->model->id}}.jpg"
+              src="{{ asset('assets/imgs/producten') }}/{{ $item->model->image }}" alt="{{ $item->model->name }}"
                 alt=""
                 class="h-16 w-16 rounded object-cover"
               />

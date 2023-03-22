@@ -62,7 +62,7 @@
         @foreach($products as $product)
         <div class="shadow-lg bg-white dark:bg-slate-600">
             <a href="{{ route('product.details',['slug'=>$product->slug])}}">
-                <img src="{{ asset('assets/imgs/shop/digital_')}}{{ $product->id}}.jpg" alt="{{ $product->name }}"/>
+                <img class="transition ease-in-out hover:scale-110" src="{{ asset('assets/imgs/producten') }}/{{ $product->image }}" alt="{{ $product->name }}"/>
             </a>
             <div class="p-5">
                 <h3><a href="{{ route('product.details',['slug'=>$product->slug])}}" class="text-blue-600 dark:text-white">{{ $product->name }}</a></h3>

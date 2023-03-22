@@ -3,7 +3,7 @@
 <section class="text-gray-700 body-font overflow-hidden">
     <div class="container px-5 py-24 mx-auto">
       <div class="lg:w-4/5 mx-auto flex flex-wrap">
-        <img class="lg:w-1/2 w-full object-cover object-center rounded border shadow-lg border-gray-200 bg-white dark:bg-slate-800" src="{{ asset('assets/imgs/shop/digital_')}}{{ $product->id}}.jpg" alt="{{ $product->name }}">
+        <img class="lg:w-1/2 w-full object-cover object-center rounded border shadow-lg border-gray-200 bg-white transition ease-in-out hover:scale-110  dark:bg-slate-800" src="{{ asset('assets/imgs/producten') }}/{{ $product->image }}" alt="{{ $product->name }}">
         <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">          
           <h2 class="text-sm title-font text-blue-600 dark:text-white tracking-widest">BRAND NAME</h2>          
           <h1 class="text-blue-600 dark:text-white text-3xl title-font font-medium mb-1">{{ $product->name }}</h1>
@@ -110,12 +110,13 @@
           </div>
           <p class="mt-6 text-blue-600 dark:text-white">{{ $product->description }}</p>
         </div>
+        {{--Related products--}}
         <h2 class="text-3xl title-font font-medium mt-6 text-blue-600 dark:text-white">Related Products</h2>
         <div class="grid grid-flow-row grid-cols-1 pt-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
             @foreach($rel_products as $rel_product)
             <div class="shadow-lg bg-white dark:bg-slate-600">
                 <a href="{{ route('product.details',['slug'=>$rel_product->slug])}}">
-                    <img src="{{ asset('assets/imgs/shop/digital_')}}{{ $rel_product->id}}.jpg" alt="{{ $rel_product->name }}"/>
+                    <img class="transition ease-in-out hover:scale-110"  src="{{ asset('assets/imgs/producten')}}/{{ $rel_product->image}}" alt="{{ $rel_product->name }}"/>                    
                 </a>
                 <div class="p-5">
                     <h3><a href="{{ route('product.details',['slug'=>$rel_product->slug])}}" class="text-blue-600 dark:text-white">{{ $rel_product->name }}</a></h3>
@@ -171,7 +172,7 @@
             @foreach($new_products as $new_product)
             <div class="shadow-lg bg-white dark:bg-slate-600">
                 <a href="{{ route('product.details',['slug'=>$new_product->slug])}}">
-                    <img src="{{ asset('assets/imgs/shop/digital_')}}{{ $new_product->id}}.jpg" alt="{{ $new_product->name }}"/>
+                    <img class="transition ease-in-out hover:scale-110" src="{{ asset('assets/imgs/producten')}}/{{ $new_product->image}}" alt="{{ $new_product->name }}"/>
                 </a>
                 <div class="p-5">
                     <h3><a href="{{ route('product.details',['slug'=>$new_product->slug])}}" class="text-blue-600 dark:text-white">{{ $new_product->name }}</a></h3>

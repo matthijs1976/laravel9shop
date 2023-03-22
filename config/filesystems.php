@@ -32,7 +32,8 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            // 'root' => storage_path('app'), --changed for product image upload by next line
+            'root' => public_path('assets/imgs'),
             'throw' => false,
         ],
 

@@ -53,7 +53,7 @@
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 bg-white dark:bg-gray-400 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
                             id="name" type="text" placeholder="Categorie Naam" wire:model="name" wire:keyup="generateSlug">
                             @error('name')
-                                <p class="text-red">{{ $message }}</p>
+                                <p class="text-red-700">{{ $message }}</p>
                             @enderror
                     </div>
                     <div class="mb-4">
@@ -64,7 +64,7 @@
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 bg-white dark:bg-gray-400 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
                             id="slug" type="text" placeholder="slug" wire:model="slug">
                             @error('slug')
-                                <p class="text-red">{{ $message }}</p>
+                                <p class="text-red-700">{{ $message }}</p>
                             @enderror
                     </div>
                     <button type="submit"

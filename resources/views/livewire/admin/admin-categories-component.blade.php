@@ -4,7 +4,7 @@
             <div class="mx-auto">
                 <div class="mb-3 float-right">
                     <a href="{{ route('admin.category.add') }}"
-                        class="bg-gradient-to-r from-green-400 to-blue-400 text-gray-50 hover:bg-purple-700 p-3 px-3 sm:px-5 rounded-full">
+                        class="bg-gradient-to-r from-green-400 to-blue-400 text-gray-50 p-3 px-3 sm:px-5 rounded-full">
                         Nieuwe Categorie Toevoegen
                     </a>
                 </div>
@@ -36,9 +36,9 @@
                                 class="bg-gradient-to-r from-green-400 to-blue-400 text-white dark:bg-gradient-to-r dark:from-slate-800 dark:to-slate-400">
                                 <tr>
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">#</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Naam</th>
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Slug</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Action</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Actie</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white text-blue-600 dark:text-white dark:bg-gray-700">
@@ -109,7 +109,6 @@
                                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                                         d="M6 18L18 6M6 6l12 12" />
                                                                 </svg>
-
                                                             </button>
                                                         </div>
                                                         <p class="mt-2 text-sm text-gray-500 ">
