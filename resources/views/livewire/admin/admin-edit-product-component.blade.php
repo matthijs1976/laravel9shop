@@ -8,7 +8,7 @@
         <div class="mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
             <div class="mx-auto max-w-3xl">
                 <header class="text-center">
-                    <h1 class="mb-12 text-xl font-bold text-blue-600 dark:text-white sm:text-3xl">Voeg Product Toe</h1>
+                    <h1 class="mb-12 text-xl font-bold text-blue-600 dark:text-white sm:text-3xl">Pas Product Aan</h1>
                 </header>
                 <div class="mb-6 float-right">
                     <a href="{{ route('admin.products') }}"
@@ -29,7 +29,7 @@
                     </div>
                   </div>
             @endif
-                <form wire:submit.prevent="addProduct">
+                <form wire:submit.prevent="updateProduct">
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2 dark:text-white" for="name">
                             Naam
@@ -149,10 +149,12 @@
                         <input
                             class="text-gray-900 bg-white dark:bg-gray-400 dark:text-white"
                             id="image" type="file" wire:model="image">
-                            @if($image)
+                            @if($newimage)
                                 <img class="object-scale-down h-32 w-80 transition ease-in-out hover:scale-110" src="{{ $image->temporaryUrl() }}"/>
+                            @else
+                            <img class="object-scale-down h-32 w-80 transition ease-in-out hover:scale-110" src="{{ asset('assets/imgs/producten') }}/{{ $image}}"/>
                             @endif
-                            @error('image')
+                            @error('newimage')
                                 <p class="text-red-700">{{ $message }}</p>
                             @enderror
                     </div>
@@ -173,7 +175,7 @@
                     </div>
                     <button type="submit"
                         class="float-right bg-gradient-to-r from-green-400 to-blue-400 text-gray-50 hover:bg-purple-700 p-3 px-3 sm:px-5 rounded-full">
-                        Voeg Toe Aan Producten
+                        Pas Product Aan
                 </button>
                 </form>
                 </div>

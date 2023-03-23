@@ -1,23 +1,8 @@
 <div>
     <!--
-  This component uses @tailwindcss/forms
-
-  yarn add @tailwindcss/forms
+  This component uses @tailwindcss/forms  
   npm install @tailwindcss/forms
-
   plugins: [require('@tailwindcss/forms')]
-
-  @layer components {
-    .no-spinner {
-      -moz-appearance: textfield;
-    }
-
-    .no-spinner::-webkit-outer-spin-button,
-    .no-spinner::-webkit-inner-spin-button {
-      margin: 0;
-      -webkit-appearance: none;
-    }
-  }
 -->
     <main class="main">
         <div class="mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
