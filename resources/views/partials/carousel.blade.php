@@ -1,20 +1,21 @@
 <div class="carousel mt-4 relative shadow-2xl bg-white dark:bg-slate-800">
     <div class="carousel-inner relative overflow-hidden">
         <!--Slide 1-->
+        @foreach($slides as $slide)
         <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true"
             hidden="" checked="checked">
         <div class="carousel-item absolute opacity-0" style="height:75vh;">
             <div class="block bg-no-repeat bg-cover bg-center h-full w-full  text-blue-600 text-5xl text-center"
-                style="background-image: url(https://www.wbcsd.org/var/site/storage/images/programs/cities-and-mobility/sustainable-cities/transforming-the-built-environment/decarbonization/resources/the-building-system-carbon-framework/146939-1-eng-GB/The-Building-System-Carbon-Framework_i1140.jpg)">
-                Slide 1</div>
+                style="background-image: url({{asset('assets/imgs/sliders')}}/{{ $slide->image }})"/>
+                {{ $slide->title}}</div>
         </div>
         <label for="carousel-3"
             class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-gradient-to-r from-green-400 to-blue-400 hover:bg-green-400 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
         <label for="carousel-2"
             class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-gradient-to-r from-green-400 to-blue-400 hover:bg-blue-400 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
-
+        @endforeach
         <!--Slide 2-->
-        <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true"
+        {{-- <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true"
             hidden="">
         <div class="carousel-item absolute opacity-0" style="height:75vh;">
             <div class="block bg-no-repeat bg-center bg-cover h-full w-full  text-blue-600 text-5xl text-center"
@@ -53,7 +54,7 @@
                 <label for="carousel-3"
                     class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
             </li>
-        </ol>
+        </ol> --}}
 
     </div>
 </div>
